@@ -1,0 +1,9 @@
+.section {
+    margin: 0 0 1em;
+    padding: 1em;
+    background: lighten($default, 95%);
+    @include breakpoint(xs) {
+        padding: 0;
+
+    }
+}

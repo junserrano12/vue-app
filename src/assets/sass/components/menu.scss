@@ -1,0 +1,11 @@
+.menu-container {
+    .menu-items {
+        padding: 0;
+        .menu-item {
+            margin-right: $spacing*3;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.accordion-container {
+
+    .accordion-items {
+
+        display: block;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .accordion-item {
+            display: block;
+
+            .accordion-title {
+                border: 1px solid $default;
+                padding: $spacing;
+                margin-bottom: $spacing;
+                display: block;
+                color: inherit;
+            }
+
+            .accordion-content {
+                display: none;
+            }
+
+            &.item-active {
+                .accordion-content {
+                    display: block;
+                }
+            }
+        }
+    }
+}

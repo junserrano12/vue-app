@@ -1,0 +1,37 @@
+[
+    {
+        "id"          : "01",
+        "title"       : "deluxe",
+        "rate"        : "5000",
+        "description" : "A short description of a deluxe room with double size bed.",
+        "image"       : "http://releases.hotelhosting.co/assets/images/Rooms/rooms-01.jpg"
+    },
+    {
+        "id"          : "02",
+        "title"       : "single",
+        "rate"        : "2000",
+        "description" : "A short description of a deluxe room with single size bed.",
+        "image"       : "http://releases.hotelhosting.co/assets/images/Rooms/rooms-02.jpg"
+    },
+    {
+        "id"          : "03",
+        "title"       : "super deluxe",
+        "rate"        : "8000",
+        "description" : "A short description of a deluxe room with queen size bed.",
+        "image"       : "http://releases.hotelhosting.co/assets/images/Rooms/rooms-03.jpg"
+    },
+    {
+        "id"          : "04",
+        "title"       : "double",
+        "rate"        : "4000",
+        "description" : "A short description of a deluxe room with double size bed.",
+        "image"       : "http://releases.hotelhosting.co/assets/images/Rooms/rooms-02.jpg"
+    },
+    {
+        "id"          : "05",
+        "title"       : "executive",
+        "rate"        : "10000",
+        "description" : "A short description of a deluxe room with king size bed.",
+        "image"       : "http://releases.hotelhosting.co/assets/images/Rooms/rooms-03.jpg"
+    }
+]

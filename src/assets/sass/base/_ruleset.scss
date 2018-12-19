@@ -1,0 +1,168 @@
+.hide {
+	display: none;
+}
+
+.giant {
+	font-size: 2.5rem;		//40px display title
+	line-height: 3rem; 		//48px
+}
+
+.bigger {
+	font-size: 2rem; 		//32px display caption
+	line-height: 2.5rem; 	//40px
+}
+
+.big {
+	font-size: 1.5rem; 		//20px page title
+	line-height: 2rem; 		//32px
+}
+
+.larger {
+	font-size: 1.25rem; 	//20px title
+	line-height: 1.5rem; 	//24px
+}
+
+.large {
+	font-size: 1.125rem; 	//18px subtitle
+	line-height: 1.5rem; 	//24px
+}
+
+.medium {
+	font-size: 1rem; 		//16px input
+	line-height: 1.5rem 	//24px
+}
+
+.regular {
+	font-size: 0.875rem;    //14px copy
+	line-height: 1.25rem;	//16px
+}
+
+.small {
+	font-size: 0.75rem; 	//12px caption
+	line-height: 1rem;		//16px
+}
+
+.smaller {
+	font-size: 0.688rem; 	//11px fineprint
+	line-height: 1rem; 		//16px
+}
+.tiny {
+	font-size: 0.586rem;
+	line-height: 1rem;
+}
+
+// Font Class
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+h1 {
+	@extend .big;
+}
+
+h2 {
+	@extend .larger;
+}
+
+h3 {
+	@extend .large;
+}
+
+h4 {
+	@extend .medium;
+}
+
+h5 {
+	@extend .medium;
+}
+
+h6 {
+	@extend .medium;
+}
+
+// Link
+a {
+	text-decoration: none;
+	display: inline;
+
+	&:hover	{
+		display: inline;
+	}
+
+	&:active {
+		display: inline;
+	}
+
+	&:focus {
+		display: inline;
+	}
+}
+
+// text
+p, span, ul, li, a {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: $light;
+	margin: 0;
+}
+
+// list
+ul {
+	li {
+
+	}
+
+	&.list-inline {
+		&:after {
+			content: '';
+		}
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	&.list-block {
+		li {
+			display: block;
+		}
+	}
+}
+
+// Image
+.image-container {
+	a {
+		display: block;
+		position: relative;
+		text-decoration: none;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+	}
+}
+
+.image-container {
+    width: 300px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+input,
+select,
+button {
+	vertical-align: middle;
+	height: 32px;
+	padding: 2px 4px;
+	margin: 0;
+	font-size: 1em;
+	display: inline-block;
+	border: 1px solid rgba($default, 0.2);
+}
