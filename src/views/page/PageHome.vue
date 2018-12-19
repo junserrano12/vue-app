@@ -14,15 +14,13 @@
                 <select v-model="src">
                     <option v-for="(item, index) in pdfList" :key="index" :value="item" v-text="item"></option>
                 </select>
-                <input v-model.number="page" type="number" v-show="numPages"><span v-show="numPages"> / {{numPages}}</span>
+                <input v-model.number="page" type="number" v-show="numPages" min="1" :max="numPages"><span v-show="numPages"> / {{numPages}}</span>
                 <button class="hide" @click="rotate += 90">&#x27F3;</button>
                 <button class="hide" @click="rotate -= 90">&#x27F2;</button>
-                <button @click="$refs.pdf.print()">print</button>
+                <button @click="$refs.pdf.print()">Print</button>
             </div>
             <div class="pdf-container">
                 <div v-if="loadedRatio > 0 && loadedRatio < 1" class="loader" :style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>
-
-
 
                 <pdf ref="pdf"
                 :src="src"
@@ -32,7 +30,8 @@
                 @progress="loadedRatio = $event"
                 @error="error"
                 @num-pages="numPages = $event"
-                @link-clicked="page = $event">
+                @link-clicked="page = $event"
+                @page-loaded="pageLoaded">
                 </pdf>
 
                 <div class="data-content" v-for="(item, index) in pdfList" :key="index" v-show="item === src">
@@ -67,6 +66,22 @@ export default {
     },
 
     computed: {
+    },
+
+    methods: {
+        pageLoaded: function(index){
+
+        },
+
+        password: function(updatePassword, reason) {
+
+            updatePassword(prompt('password is "test"'));
+        },
+
+        error: function(err) {
+
+            console.log(err);
+        }
     },
 
     data() {
@@ -125,20 +140,7 @@ export default {
                             ]
                         ]
         }
-    },
-
-    methods: {
-        password: function(updatePassword, reason) {
-
-            updatePassword(prompt('password is "test"'));
-        },
-
-        error: function(err) {
-
-            console.log(err);
-        }
     }
-
 }
 </script>
 
