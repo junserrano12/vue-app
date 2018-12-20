@@ -31,7 +31,7 @@
                 @error="error"
                 @num-pages="numPages = $event"
                 @link-clicked="page = $event"
-                @page-loaded="pageLoaded">
+                @loaded="loaded">
                 </pdf>
 
                 <div class="data-content" v-for="(item, index) in pdfList" :key="index" v-show="item === src">
@@ -62,15 +62,22 @@ export default {
 
     components: {
         ModuleMenu,
-        pdf: pdf
+        pdf
     },
 
     computed: {
     },
 
     methods: {
-        pageLoaded: function(index){
+        loaded: function() {
+            this.$refs.pdf.pdf.forEachPage( function( page ) {
 
+                page.getTextContent().then( function( content ) {
+                    var text = content.items.map( item => item.str );
+                    content.items[25].str = 'HELLO WORLD';
+                });
+
+            });
         },
 
         password: function(updatePassword, reason) {
@@ -140,6 +147,11 @@ export default {
                             ]
                         ]
         }
+    },
+
+    mounted() {
+
+
     }
 }
 </script>
