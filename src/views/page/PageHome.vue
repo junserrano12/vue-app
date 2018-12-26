@@ -17,12 +17,12 @@
                 <input v-model.number="page" type="number" v-show="numPages" min="1" :max="numPages"><span v-show="numPages"> / {{numPages}}</span>
                 <button class="hide" @click="rotate += 90">&#x27F3;</button>
                 <button class="hide" @click="rotate -= 90">&#x27F2;</button>
-                <button @click="$refs.pdf.print()">Print</button>
+                <button @click="$refs.pdfcontainer.print()">Print</button>
             </div>
             <div class="pdf-container">
                 <div v-if="loadedRatio > 0 && loadedRatio < 1" class="loader" :style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>
 
-                <pdf ref="pdf"
+                <pdf ref="pdfcontainer"
                 :src="src"
                 :page="page"
                 :rotate="rotate"
@@ -33,6 +33,8 @@
                 @link-clicked="page = $event"
                 @loaded="loaded">
                 </pdf>
+
+                <canvas id="canvas-container" :src="src" v-if="src"></canvas>
 
                 <div class="data-content" v-for="(item, index) in pdfList" :key="index" v-show="item === src">
                     <div v-for="data in datacontent[index]" v-show="data.page === page">
@@ -54,7 +56,7 @@ import dataCopyEn from "@/locales/en.json"
 /*MODULES*/
 import ModuleMenu from "@/components/ModuleMenu.vue"
 
-/*VUE*/
+/*vuepdf*/
 import pdf from 'vue-pdf'
 
 export default {
@@ -69,15 +71,31 @@ export default {
     },
 
     methods: {
-        loaded: function() {
-            this.$refs.pdf.pdf.forEachPage( function( page ) {
 
-                page.getTextContent().then( function( content ) {
-                    var text = content.items.map( item => item.str );
-                    content.items[25].str = 'HELLO WORLD';
-                });
+        loaded: function() {
+
+            this.$refs.pdfcontainer.pdf.forEachPage( function( page ) {
+
+                // console.log( page.getAnnotations() );
+
+
+                // page.getAnnotations().then( function( content ) {
+                //     console.log( param );
+                // });
+
+                // page.getTextContent().then( function( content ) {
+                //     var text = content.items.map( item => item.str );
+                //     content.items[25].str = 'HELLO WORLD';
+                // });
+
+
+                // this.$refs.pdfcontainer.pdf.render('2d', page.getViewport(1));
 
             });
+
+            // console.log( this.$refs.pdfcontainer.pdf );
+
+
         },
 
         password: function(updatePassword, reason) {
@@ -150,7 +168,6 @@ export default {
     },
 
     mounted() {
-
 
     }
 }
