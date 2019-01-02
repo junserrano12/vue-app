@@ -4,7 +4,17 @@
             <slot name="header"></slot>
         </header>
 
+        <section class="sidebar">
+            <ModuleMenu :items="primaryMenuList" :classes="['list-block', 'another-class']">
+                <template slot-scope="listProps">
+                    <router-link :to="listProps.item.uri">{{listProps.item.link}}</router-link>
+                </template>
+            </ModuleMenu>
+
+        </section>
+
         <section class="main">
+
             <div v-if="this.hasContentHeaderSlot" class="content-header">
                 <slot name="contentHeader"></slot>
             </div>
@@ -16,38 +26,55 @@
             </div>
         </section>
 
-        <footer v-if="this.hasFooterSlot" class="footer">
-            <slot name="footer"></slot>
+        <footer class="footer">
+            <span>&copy; All rights reserved</span>
         </footer>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "TemplatePage",
-        components: {
+/*MODULES*/
+import ModuleMenu from "@/components/ModuleMenu.vue"
+
+/*DATA*/
+import dataCopyEn from "@/locales/en.json"
+
+export default {
+    name: "TemplatePage",
+
+    components: {
+        ModuleMenu
+    },
+
+    computed: {
+        hasHeaderSlot() {
+            return !!this.$slots.header;
         },
-        props: {
+
+        hasFooterSlot() {
+            return !!this.$slots.footer;
         },
-        computed: {
-            hasHeaderSlot() {
-                return !!this.$slots.header;
-            },
-            hasFooterSlot() {
-                return !!this.$slots.footer;
-            },
-            hasContentHeaderSlot() {
-                return !!this.$slots.contentHeader;
-            },
-            hasContentBodySlot() {
-                return !!this.$slots.contentBody;
-            },
-            hasContentFooterSlot() {
-                return !!this.$slots.contentFooter;
-            }
+
+        hasContentHeaderSlot() {
+            return !!this.$slots.contentHeader;
         },
-        methods: {
+
+        hasContentBodySlot() {
+            return !!this.$slots.contentBody;
+        },
+
+        hasContentFooterSlot() {
+            return !!this.$slots.contentFooter;
         }
-    };
+    },
+
+    data() {
+        return {
+            primaryMenuList : dataCopyEn.menu.primary
+        }
+    }
+
+};
 </script>
 
+<style lang="scss" src="@/assets/sass/template/page.scss"></style>

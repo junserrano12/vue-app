@@ -6,8 +6,12 @@
                                             "link"        : "Home"
                                         },
                                         {
-                                            "uri"         : "/sample",
-                                            "link"        : "Sample"
+                                            "uri"         : "/form",
+                                            "link"        : "Form"
+                                        },
+                                        {
+                                            "uri"         : "/list",
+                                            "link"        : "List"
                                         }
                                     ]
                       },

@@ -1,16 +1,13 @@
 <template>
     <TemplatePage>
-        <template slot="header">
-            <h1 class="entry-title">404 Page</h1>
+        <template slot="contentHeader">
+            <h1 class="entry-title">{{labels.pageTitle}}</h1>
         </template>
     </TemplatePage>
 </template>
 
 <script>
-
 export default {
-    name: "PageNotFound",
-    components: {
-    }
+    name: "PageNotFound"
 }
 </script>

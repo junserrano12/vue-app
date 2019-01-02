@@ -154,7 +154,6 @@ ul {
     }
 }
 
-
 input,
 select,
 button {
@@ -165,4 +164,79 @@ button {
 	font-size: 1em;
 	display: inline-block;
 	border: 1px solid rgba($default, 0.2);
+}
+
+/* table */
+table {
+	width: 100%;
+	position: relative;
+
+	tr {
+
+		th {
+			background: lighten( $default, 80 );
+			padding: $spacing $spacing*2;
+		}
+
+		td {
+			padding: $spacing $spacing*2;
+		}
+
+		&:nth-child(3n) {
+			background: lighten( $default, 90);
+		}
+
+		.td {
+			&-small {
+				width: 15%;
+			}
+
+			&-quarter {
+				width: 25%;
+			}
+
+			&-half {
+				width: 50%;
+			}
+		}
+	}
+}
+
+/* align */
+.align {
+	&-left {
+		text-align: left;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-center {
+		text-align: center;
+	}
+}
+
+/* FORMS */
+.field-container {
+	margin-bottom: $spacing*2;
+
+	.field-label {
+		float: left;
+	}
+
+	.field-input {
+		float: right;
+	}
+
+	.field-submit {
+		float: right;
+	}
+
+	&:after {
+		content:"";
+		display: block;
+		position: relative;
+		clear: both;
+	}
 }

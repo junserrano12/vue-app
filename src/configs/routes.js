@@ -1,6 +1,7 @@
-const PageHome      = () => import("../views/page/PageHome.vue");
-const PageSample    = () => import("../views/page/PageSample.vue");
-const PageNotFound  = () => import("../views/page/PageNotFound.vue");
+const PageHome      = () => import("@/views/page/PageHome.vue");
+const PageNotFound  = () => import("@/views/page/PageNotFound.vue");
+const PageForm      = () => import("@/views/page/PageForm.vue");
+const PageList      = () => import("@/views/page/PageList.vue");
 
 const routes = [
     {
@@ -14,9 +15,14 @@ const routes = [
         component: PageHome
     },
     {
-        path: "/sample",
-        name: "sample",
-        component: PageSample
+        path: "/form",
+        name: "form",
+        component: PageForm
+    },
+    {
+        path: "/list",
+        name: "list",
+        component: PageList
     }
 ];
 

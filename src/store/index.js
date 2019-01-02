@@ -23,10 +23,28 @@ function loadData() {
 
 export default new Vuex.Store({
     state: {
-        storedata: loadData()
+        storedata: loadData(),
+        axiosdata: {
+            clientinformations: []
+        }
+
     },
 
-    modules: {
+    getters: {
+    },
 
+    actions: {
+        updateClientInformations: ({commit}) => {
+            axios.get( '/api/clientinformations.json' )
+                 .then( response => {
+                    commit('UPDATE_CLIENT_INFO', response.data)
+                 })
+        }
+    },
+
+    mutations: {
+        UPDATE_CLIENT_INFO: (state, client) => {
+            state.axiosdata.clientinformations = client
+        }
     }
 })

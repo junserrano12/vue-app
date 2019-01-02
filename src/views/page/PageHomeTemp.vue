@@ -1,12 +1,13 @@
 <template>
     <TemplatePage>
         <template slot="header">
-        </template>
-
-        <template slot="contentHeader">
             <h1 class="entry-title">{{labels.pageTitle}}</h1>
+            <ModuleMenu :items="primaryMenuList" :classes="['list-inline', 'another-class']">
+                <template slot-scope="listProps">
+                    <router-link :to="listProps.item.uri">{{listProps.item.link}}</router-link>
+                </template>
+            </ModuleMenu>
         </template>
-
         <template slot="contentBody">
 
             <div class="pdf-control">
@@ -20,6 +21,18 @@
             </div>
             <div class="pdf-container">
                 <div v-if="loadedRatio > 0 && loadedRatio < 1" class="loader" :style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>
+
+                <pdf ref="pdfcontainer"
+                :src="src"
+                :page="page"
+                :rotate="rotate"
+                @password="password"
+                @progress="loadedRatio = $event"
+                @error="error"
+                @num-pages="numPages = $event"
+                @link-clicked="page = $event"
+                @loaded="loaded">
+                </pdf>
 
                 <canvas id="canvas-container" :src="src" v-if="src"></canvas>
 
@@ -37,22 +50,63 @@
 /*VUEX*/
 import { mapState } from 'vuex'
 
-/*PDF*/
-import range from "lodash/range"
-
 /*DATA*/
 import dataCopyEn from "@/locales/en.json"
+
+/*MODULES*/
+import ModuleMenu from "@/components/ModuleMenu.vue"
+
+/*vuepdf*/
+import pdf from 'vue-pdf'
 
 export default {
     name : "PageHome",
 
     components: {
+        ModuleMenu,
+        pdf
     },
 
     computed: {
     },
 
     methods: {
+
+        loaded: function() {
+
+            this.$refs.pdfcontainer.pdf.forEachPage( function( page ) {
+
+                // console.log( page.getAnnotations() );
+
+
+                // page.getAnnotations().then( function( content ) {
+                //     console.log( param );
+                // });
+
+                // page.getTextContent().then( function( content ) {
+                //     var text = content.items.map( item => item.str );
+                //     content.items[25].str = 'HELLO WORLD';
+                // });
+
+
+                // this.$refs.pdfcontainer.pdf.render('2d', page.getViewport(1));
+
+            });
+
+            // console.log( this.$refs.pdfcontainer.pdf );
+
+
+        },
+
+        password: function(updatePassword, reason) {
+
+            updatePassword(prompt('password is "test"'));
+        },
+
+        error: function(err) {
+
+            console.log(err);
+        }
     },
 
     data() {

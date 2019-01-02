@@ -1,0 +1,43 @@
+.page {
+    .header {
+
+    }
+
+    .sidebar {
+        background: lighten($default, 80%);
+        min-height: calc(100vh - 2em);
+        width: 10%;
+        display: inline-block;
+        padding: 1em;
+    }
+
+    .main {
+        float: right;
+        width: 90%;
+        display: inline-block;
+        padding: 1em;
+
+        .content-header {
+            margin-bottom: 1em;
+        }
+
+        .content-body {
+
+        }
+
+        .content-footer {
+
+        }
+    }
+
+    .footer {
+        clear: both;
+        width: 100%;
+        position: absolute;
+        display: block;
+        min-height: 2em;
+        line-height: 2em;
+        text-align: center;
+        background: lighten($default, 80%);
+    }
+}
