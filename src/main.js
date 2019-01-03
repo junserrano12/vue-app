@@ -2,12 +2,12 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/";
 import store from "./store/";
-import i18n from "./i18n/"
+import i18n from "./i18n/";
 import "./registerServiceWorker";
-import TemplatePage from "@/views/template/TemplatePage.vue"
+import TemplatePage from "@/views/template/TemplatePage.vue";
 import GlobalMixins from "@/mixins/mixins";
 
-Vue.config.productionTip = process.env.NODE_ENV === 'production'
+Vue.config.productionTip = process.env.NODE_ENV === 'production';
 Vue.prototype.$eventHub = new Vue();
 
 Vue.component( "TemplatePage", TemplatePage );

@@ -4,11 +4,14 @@
     }
 
     .sidebar {
-        background: lighten($default, 80%);
-        min-height: calc(100vh - 2em);
+        background: lighten($default, 80);
+        min-height: 100vh;
         width: 10%;
         display: inline-block;
         padding: 1em;
+        position: fixed;
+        left: 0;
+        top: 0;
     }
 
     .main {
@@ -16,6 +19,7 @@
         width: 90%;
         display: inline-block;
         padding: 1em;
+        min-height: 100vh;
 
         .content-header {
             margin-bottom: 1em;
@@ -33,11 +37,11 @@
     .footer {
         clear: both;
         width: 100%;
-        position: absolute;
+        position: relative;
         display: block;
-        min-height: 2em;
-        line-height: 2em;
+        height: 1.5em;
+        line-height: 1.5em;
         text-align: center;
-        background: lighten($default, 80%);
+        background: lighten($default, 80);
     }
 }

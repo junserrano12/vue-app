@@ -6,4 +6,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    created() {
+        this.$store.dispatch("loadClientInformations");
+    }
+}
+</script>
+
 <style lang="scss" src="@/assets/sass/main.scss"></style>

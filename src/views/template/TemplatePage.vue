@@ -10,7 +10,6 @@
                     <router-link :to="listProps.item.uri">{{listProps.item.link}}</router-link>
                 </template>
             </ModuleMenu>
-
         </section>
 
         <section class="main">
@@ -22,12 +21,12 @@
                 <slot name="contentBody"></slot>
             </div>
             <div v-if="this.hasContentFooterSlot" class="content-footer">
-               <slot name="contentFooter"></slot>
+                <slot name="contentFooter"></slot>
             </div>
         </section>
 
         <footer class="footer">
-            <span>&copy; All rights reserved</span>
+            <span class="small">&copy; All rights reserved</span>
         </footer>
     </div>
 </template>
@@ -73,7 +72,6 @@ export default {
             primaryMenuList : dataCopyEn.menu.primary
         }
     }
-
 };
 </script>
 

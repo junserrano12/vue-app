@@ -182,13 +182,13 @@ table {
 			padding: $spacing $spacing*2;
 		}
 
-		&:nth-child(3n) {
+		&:nth-child(odd) {
 			background: lighten( $default, 90);
 		}
 
 		.td {
-			&-small {
-				width: 15%;
+			&-half-quarter {
+				width: 12.5%;
 			}
 
 			&-quarter {
@@ -197,6 +197,10 @@ table {
 
 			&-half {
 				width: 50%;
+			}
+
+			&-three-quarter {
+				width: 75%;
 			}
 		}
 	}
@@ -230,7 +234,7 @@ table {
 	}
 
 	.field-submit {
-		float: right;
+		// float: right;
 	}
 
 	&:after {

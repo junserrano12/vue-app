@@ -11,12 +11,12 @@
                     <div class="col-md-3">
                         <div class="field-container">
                             <label for="fname" class="field-label">First Name</label>
-                            <input id="fname" type="text" class="field-input"/>
+                            <input id="fname" type="text" class="field-input" v-model="fname"/>
                         </div>
 
                         <div class="field-container">
                             <label for="lname" class="field-label">Last Name</label>
-                            <input id="lname" type="text" class="field-input"/>
+                            <input id="lname" type="text" class="field-input" v-model="lname"/>
                         </div>
                     </div>
                 </div>
@@ -32,40 +32,33 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-
 export default {
     name : "PageForm",
 
-    components: {
-    },
-
-    computed: {
-        ...mapState({
-            sdata: 'storedata',
-            adata: 'axiosdata'
-        })
-    },
-
     methods: {
-        ...mapActions({
-            updateClientInformations: 'updateClientInformations'
-        }),
-
         addClientInformations: function() {
-            console.log( this.adata.clientinformations.length );
+            var ctr = this.$store.state.axiosdata.clientinformations.length + 1;
+
+            this.newclient = {
+                                'id': ctr,
+                                'fname': this.fname,
+                                'lname': this.lname
+                            };
+
+            this.$store.dispatch("addClientInformations", this.newclient);
+
+            this.newclient = [];
+            this.fname = this.lname = '';
         }
     },
 
     data() {
         return {
+            newclient: [],
             fname: '',
-            lname: ''
-        }
-    },
+            lname: '',
 
-    created() {
-        this.updateClientInformations()
+        }
     }
 }
 </script>

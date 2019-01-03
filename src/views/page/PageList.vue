@@ -12,14 +12,17 @@
 
             <table>
                 <tr>
-                    <th class="td-small">ID</th>
+                    <th class="td-half-quarter">ID</th>
                     <th>Name</th>
-                    <th class="td-small">Print</th>
+                    <th class="td-half-quarter">Actions</th>
                 </tr>
-                <tr v-for="(item, index) in this.adata.clientinformations">
+                <tr v-for="(item, index) in listClientInformations">
                     <td class="align-center">{{item.id}}</td>
                     <td>{{item.lname}}, {{item.fname}}</td>
-                    <td class="align-center"><button class="button-print">Print</button></td>
+                    <td class="align-center">
+                        <button class="button-print" @click="previewPdf(index)">Edit</button>
+                        <button class="button-print" @click="deleteClientInformations(index)">Delete</button>
+                    </td>
                 </tr>
             </table>
 
@@ -29,8 +32,6 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-
 export default {
     name : "PageList",
 
@@ -38,17 +39,19 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            sdata: 'storedata',
-            adata: 'axiosdata'
-        })
-
+        listClientInformations: function() {
+            return this.$store.getters.getClientInformations;
+        }
     },
 
     methods: {
-        ...mapActions({
-            updateClientInformations: 'updateClientInformations'
-        })
+        deleteClientInformations: function(index) {
+            this.$store.dispatch("deleteClientInformations", index);
+        },
+
+        previewPdf: function(index) {
+            console.log('preview pdf '+index);
+        }
     },
 
     data() {
@@ -57,7 +60,6 @@ export default {
     },
 
     created() {
-        this.updateClientInformations()
     }
 }
 </script>
