@@ -1,9 +1,5 @@
 <template>
     <TemplatePage>
-        <template slot="contentHeader">
-            <h1 class="entry-title">CLIENT INFORMATION</h1>
-        </template>
-
         <template slot="contentBody">
 
             <form @submit.prevent="addClientInformations">
@@ -47,6 +43,7 @@ export default {
 
             this.$store.dispatch("addClientInformations", this.newclient);
 
+            /*Reset Data*/
             this.newclient = [];
             this.fname = this.lname = '';
         }
@@ -57,7 +54,6 @@ export default {
             newclient: [],
             fname: '',
             lname: '',
-
         }
     }
 }

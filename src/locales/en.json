@@ -15,14 +15,24 @@
                                         }
                                     ]
                       },
-    "labels"        : {
+    "page"        : {
                         "home"      : {
-                                        "pageTitle"         : "Home Page",
+                                        "pageTitle"         : "Home",
                                         "pageDescription"   : "Home page description"
                                       },
-                        "sample"    : {
-                                        "pageTitle"         : "Sample Page",
-                                        "pageDescription"   : "Sample page description"
+                        "list"      : {
+                                        "pageTitle"         : "Client List",
+                                        "pageDescription"   : "Client List page description"
+                                      },
+                        "notfound"  : {
+                                        "pageTitle"         : "Page Not Found",
+                                        "pageDescription"   : "Page Not Found"
+
+                                      },
+                        "form"      : {
+                                        "pageTitle"         : "Client Information",
+                                        "pageDescription"   : "Client Information page description"
+
                                       }
                       },
     "constant"      : {

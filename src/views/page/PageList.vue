@@ -1,9 +1,5 @@
 <template>
     <TemplatePage>
-        <template slot="contentHeader">
-            <h1 class="entry-title">CLIENT LIST</h1>
-        </template>
-
         <template slot="contentBody">
             <div class="field-container align-right">
                 <input id="search" type="text" class="serach-box">
@@ -14,18 +10,18 @@
                 <tr>
                     <th class="td-half-quarter">ID</th>
                     <th>Name</th>
-                    <th class="td-half-quarter">Actions</th>
+                    <th class="td-quarter">Actions</th>
                 </tr>
                 <tr v-for="(item, index) in listClientInformations">
                     <td class="align-center">{{item.id}}</td>
                     <td>{{item.lname}}, {{item.fname}}</td>
                     <td class="align-center">
-                        <button class="button-print" @click="previewPdf(index)">Edit</button>
-                        <button class="button-print" @click="deleteClientInformations(index)">Delete</button>
+                        <button class="button-load" @click="loadClientInformations(index)">Load</button>
+                        <button class="button-edit" @click="editClientInformations(index)">Edit</button>
+                        <button class="button-delete" @click="deleteClientInformations(index)">Delete</button>
                     </td>
                 </tr>
             </table>
-
         </template>
 
     </TemplatePage>
@@ -34,9 +30,6 @@
 <script>
 export default {
     name : "PageList",
-
-    components: {
-    },
 
     computed: {
         listClientInformations: function() {
@@ -49,17 +42,14 @@ export default {
             this.$store.dispatch("deleteClientInformations", index);
         },
 
-        previewPdf: function(index) {
-            console.log('preview pdf '+index);
-        }
-    },
+        editClientInformations: function(index) {
+            console.log("Edit Client "+index);
+        },
 
-    data() {
-        return {
+        loadClientInformations: function(index) {
+            this.$router.push({ name: "form" });
+            console.log("Load Client "+index);
         }
-    },
-
-    created() {
     }
 }
 </script>

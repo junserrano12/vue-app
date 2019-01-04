@@ -1,7 +1,7 @@
 <template>
     <TemplatePage>
-        <template slot="contentHeader">
-            <h1 class="entry-title">{{labels.pageTitle}}</h1>
+        <template slot="contentBody">
+            <p>Sorry!</p>
         </template>
     </TemplatePage>
 </template>

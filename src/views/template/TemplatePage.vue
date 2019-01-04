@@ -13,8 +13,8 @@
         </section>
 
         <section class="main">
-
-            <div v-if="this.hasContentHeaderSlot" class="content-header">
+            <div class="content-header">
+                <h1 class="entry-title">{{page[currentRouteName].pageTitle}}</h1>
                 <slot name="contentHeader"></slot>
             </div>
             <div v-if="this.hasContentBodySlot" class="content-body">
@@ -54,22 +54,23 @@ export default {
             return !!this.$slots.footer;
         },
 
-        hasContentHeaderSlot() {
-            return !!this.$slots.contentHeader;
-        },
-
         hasContentBodySlot() {
             return !!this.$slots.contentBody;
         },
 
         hasContentFooterSlot() {
             return !!this.$slots.contentFooter;
+        },
+
+        currentRouteName() {
+            return this.$route.name;
         }
     },
 
     data() {
         return {
-            primaryMenuList : dataCopyEn.menu.primary
+            primaryMenuList: dataCopyEn.menu.primary,
+            page: dataCopyEn.page
         }
     }
 };
