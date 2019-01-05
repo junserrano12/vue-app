@@ -43,13 +43,28 @@ export default {
         },
 
         editClientInformations: function(index) {
-            console.log("Edit Client "+index);
+            this.clientindex = index;
+            this.$router.push({name: "form"});
         },
 
         loadClientInformations: function(index) {
-            this.$router.push({ name: "form" });
+            // this.$router.push({ name: "form" });
             console.log("Load Client "+index);
         }
+    },
+
+    data() {
+        return {
+            clientindex: null
+        }
+    },
+
+    beforeRouteLeave (to, from, next) {
+        if ( to.name === "form" && this.clientindex != null ) {
+            this.$store.dispatch("updateGlobalClientId", this.clientindex);
+            this.clientindex = null;
+        }
+        next();
     }
 }
 </script>

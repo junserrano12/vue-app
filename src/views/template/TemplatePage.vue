@@ -14,7 +14,7 @@
 
         <section class="main">
             <div class="content-header">
-                <h1 class="entry-title">{{page[currentRouteName].pageTitle}}</h1>
+                <h1 class="entry-title">{{labelPageTItle}}</h1>
                 <slot name="contentHeader"></slot>
             </div>
             <div v-if="this.hasContentBodySlot" class="content-body">
@@ -46,6 +46,14 @@ export default {
     },
 
     computed: {
+        labelPageTItle() {
+            if ( this.page[this.currentRouteName] ) {
+                return this.page[this.currentRouteName].pageTitle;
+            } else {
+                return "Default Page Title";
+            }
+        },
+
         hasHeaderSlot() {
             return !!this.$slots.header;
         },

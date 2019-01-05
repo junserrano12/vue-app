@@ -12,6 +12,10 @@
                                         {
                                             "uri"         : "/list",
                                             "link"        : "List"
+                                        },
+                                        {
+                                            "uri"         : "/preview",
+                                            "link"        : "Preview"
                                         }
                                     ]
                       },
@@ -31,6 +35,11 @@
                                       },
                         "form"      : {
                                         "pageTitle"         : "Client Information",
+                                        "pageDescription"   : "Client Information page description"
+
+                                      },
+                        "preview"   : {
+                                        "pageTitle"         : "Preview Client Information",
                                         "pageDescription"   : "Client Information page description"
 
                                       }

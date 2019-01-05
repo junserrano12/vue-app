@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
 
     getters: {
-        getClientInformations: state => {
+        getClientInformations: (state) => {
             return state.axiosdata.clientinformations;
         }
     },
@@ -88,6 +88,10 @@ export default new Vuex.Store({
 
         deleteClientInformations: (context, index) => {
             context.commit("DELETE_CLIENT_INFO", index);
+        },
+
+        updateGlobalClientId: (context, index) => {
+            context.commit("UPDATE_GLOBAL_CLIENT_ID", index);
         }
     },
 
@@ -117,6 +121,10 @@ export default new Vuex.Store({
         DELETE_CLIENT_INFO: (state, index) => {
             state.axiosdata.clientinformations.splice(index, 1);
             window.localStorage.setItem( "clients", JSON.stringify( state.axiosdata.clientinformations ) );
+        },
+
+        UPDATE_GLOBAL_CLIENT_ID: (state, index) => {
+            state.storedata.global.clientid = index;
         }
     }
 })

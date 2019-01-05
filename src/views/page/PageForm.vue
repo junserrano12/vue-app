@@ -2,7 +2,7 @@
     <TemplatePage>
         <template slot="contentBody">
 
-            <form @submit.prevent="addClientInformations">
+            <form @submit.prevent="updateClientInformations">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="field-container">
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="field-container">
-                    <input id="submit" type="submit" value="Submit" class="field-submit">
+                    <input id="submit" type="submit" :value="labelSubmit" class="field-submit">
                 </div>
             </form>
 
@@ -29,32 +29,65 @@
 
 <script>
 export default {
-    name : "PageForm",
+    name: "PageForm",
+
+    computed: {
+        labelSubmit: function() {
+            return ( this.clientid === null ) ? "Submit" : "Update";
+        }
+    },
 
     methods: {
-        addClientInformations: function() {
-            var ctr = this.$store.state.axiosdata.clientinformations.length + 1;
+        updateClientInformations: function() {
+            if ( this.clientid === null ) {
+                var ctr = this.$store.state.axiosdata.clientinformations.length + 1;
 
-            this.newclient = {
-                                'id': ctr,
-                                'fname': this.fname,
-                                'lname': this.lname
-                            };
+                this.newclient = {
+                                    "id": ctr,
+                                    "fname": this.fname,
+                                    "lname": this.lname
+                                };
 
-            this.$store.dispatch("addClientInformations", this.newclient);
+                this.$store.dispatch("addClientInformations", this.newclient);
+
+            } else {
+
+                console.log( "update Client" + this.clientid );
+            }
 
             /*Reset Data*/
             this.newclient = [];
-            this.fname = this.lname = '';
+            this.fname = this.lname = "";
         }
     },
 
     data() {
         return {
             newclient: [],
-            fname: '',
-            lname: '',
+            fname: "",
+            lname: "",
+            clientid: null
         }
+    },
+
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.clientid = vm.$store.state.storedata.global.clientid
+            if ( vm.clientid !== null ) {
+                vm.fname = vm.$store.state.axiosdata.clientinformations[vm.clientid].fname;
+                vm.lname = vm.$store.state.axiosdata.clientinformations[vm.clientid].lname;
+            }
+        });
+    },
+
+    beforeRouteLeave(to, from, next) {
+
+        if ( this.clientid !== null ) {
+            this.fname = this.lname = "";
+            this.$store.dispatch("updateGlobalClientId", null);
+        }
+        next();
     }
+
 }
 </script>
