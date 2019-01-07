@@ -8,5 +8,10 @@
         "id"          : "2",
         "fname"       : "Jane",
         "lname"       : "Doe"
+    },
+    {
+        "id"          : "3",
+        "fname"       : "Mike",
+        "lname"       : "Polaski"
     }
 ]
