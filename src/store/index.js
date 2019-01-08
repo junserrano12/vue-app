@@ -52,12 +52,12 @@ function saveToFile(jsonData, filename) {
     }
 }
 
-function saveJsonFile(data) {
-    const os = require('os');
-    const storage = require('electron-json-storage');
+// function saveJsonFile(data) {
+//     const os = require('os');
+//     const storage = require('electron-json-storage');
 
-    storage.setDataPath(os.tmpdir());
-}
+//     storage.setDataPath(os.tmpdir());
+// }
 
 export default new Vuex.Store({
     state: {
