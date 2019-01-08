@@ -50,9 +50,6 @@ export default {
 
                 this.$store.dispatch("addClientInformations", this.newclient);
 
-            } else {
-
-                console.log( "update Client" + this.clientid );
             }
 
             /*Reset Data*/

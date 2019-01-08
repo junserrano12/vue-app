@@ -26,7 +26,7 @@ export default {
     methods: {
         updateItem: function() {
             if ( this.$parent.toggle === 'toggle-all' ) {
-                var tempactive = this.isactive;
+                let tempactive = this.isactive;
 
                 this.$parent.$children.forEach( function( elem ) {
                     elem.isactive = false;

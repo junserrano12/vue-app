@@ -12,7 +12,7 @@
                     <th>Name</th>
                     <th class="td-quarter">Actions</th>
                 </tr>
-                <tr v-for="(item, index) in listClientInformations">
+                <tr v-for="(item, index) in listClientInformations" :key="index">
                     <td class="align-center">{{item.id}}</td>
                     <td>{{item.lname}}, {{item.fname}}</td>
                     <td class="align-center">
@@ -48,8 +48,7 @@ export default {
         },
 
         loadClientInformations: function(index) {
-            // this.$router.push({ name: "form" });
-            console.log("Load Client "+index);
+            this.clientindex = index;
         }
     },
 

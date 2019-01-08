@@ -1,9 +1,8 @@
 import Vue from "vue";
-import App from "./App.vue";
-import router from "./router/";
-import store from "./store/";
-import i18n from "./i18n/";
-import "./registerServiceWorker";
+import App from "@/App.vue";
+import router from "@/router/";
+import store from "@/store/";
+import i18n from "@/i18n/";
 import TemplatePage from "@/views/template/TemplatePage.vue";
 import GlobalMixins from "@/mixins/mixins";
 

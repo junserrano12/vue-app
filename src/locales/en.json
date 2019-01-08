@@ -21,31 +21,25 @@
                       },
     "page"        : {
                         "home"      : {
-                                        "pageTitle"         : "Home",
-                                        "pageDescription"   : "Home page description"
+                                        "pageTitle"         : "Home"
                                       },
                         "list"      : {
-                                        "pageTitle"         : "Client List",
-                                        "pageDescription"   : "Client List page description"
+                                        "pageTitle"         : "Client List"
                                       },
                         "notfound"  : {
-                                        "pageTitle"         : "Page Not Found",
-                                        "pageDescription"   : "Page Not Found"
+                                        "pageTitle"         : "Page Not Found"
 
                                       },
                         "form"      : {
-                                        "pageTitle"         : "Client Information",
-                                        "pageDescription"   : "Client Information page description"
+                                        "pageTitle"         : "Client Information"
 
                                       },
                         "preview"   : {
-                                        "pageTitle"         : "Preview Client Information",
-                                        "pageDescription"   : "Client Information page description"
+                                        "pageTitle"         : "Preview Client Information"
 
                                       }
                       },
     "constant"      : {
-                        "sampleParagraphText" : "The club’s mission is best served by building awareness (internally, as well as with our partner member hotel team) about how to foster a community of healthier humans, so we bring the best possible energy to the work we do.",
                         "copyright" : "All rights reserved."
                       }
 }

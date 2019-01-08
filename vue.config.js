@@ -1,5 +1,5 @@
 module.exports = {
-    productionSourceMap: false,
+    productionSourceMap: true,
 
     css: {
         modules: true,
@@ -19,5 +19,9 @@ module.exports = {
             localeDir: "@/data/locales",
             enableInSFC: false
         }
+    },
+
+    devServer: {
+        port: 5000
     }
 }

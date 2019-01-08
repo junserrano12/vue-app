@@ -21,37 +21,6 @@ function loadData() {
     return states;
 }
 
-function saveData(data) {
-    const fs = require('fs');
-
-    fs.writeFile('api/clientinformations.json', data, (err) => {
-        if ( err ) throw err;
-        console.log('data written to file');
-    });
-}
-
-function saveToFile(jsonData, filename) {
-    const blob = new Blob([jsonData], { type: 'application/json' })
-    var location = '~/vue/pdfform/public/api/';
-
-    if (navigator.msSaveBlob) { // IE 10+
-        navigator.msSaveBlob(blob, filename)
-    } else {
-        let link = document.createElement('a')
-
-        if (link.download !== undefined) { // feature detection
-            // Browsers that support HTML5 download attribute
-            let url = URL.createObjectURL(blob)
-            link.setAttribute('href', url)
-            link.setAttribute('download', 'clientinformations')
-            link.style.visibility = 'hidden'
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-        }
-    }
-}
-
 export default new Vuex.Store({
     state: {
         storedata: loadData(),
@@ -98,10 +67,8 @@ export default new Vuex.Store({
         },
 
         ADD_CLIENT_INFO: (state, client) => {
-
             state.axiosdata.clientinformations.push( client );
             window.localStorage.setItem( "clients", JSON.stringify( state.axiosdata.clientinformations ) );
-
         },
 
         DELETE_CLIENT_INFO: (state, index) => {

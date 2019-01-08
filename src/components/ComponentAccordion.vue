@@ -71,7 +71,7 @@ export default {
     mounted() {
         if ( this.items ) {
             if ( this.display === 'show-all' ) {
-                var itemKeys = [];
+                let itemKeys = [];
                 this.items.forEach( function( elem, index ) {
                     itemKeys.push( index );
                 });

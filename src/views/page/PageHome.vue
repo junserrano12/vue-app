@@ -7,13 +7,6 @@
 
 <script>
 export default {
-    name : "PageHome",
-
-    data() {
-        return {
-        }
-    }
+    name : "PageHome"
 }
 </script>
-
-<style lang="scss" src="@/assets/sass/page/home.scss"></style>

@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import ComponentList from "@/components/ComponentList"
-
 export default {
     name: "ModuleMenu",
 
@@ -24,10 +22,6 @@ export default {
             type: Array,
             required: false
         }
-    },
-
-    components: {
-        ComponentList
     }
 }
 </script>
