@@ -1,6 +1,6 @@
 {
-  "name": "pdfform",
-  "short_name": "pdfform",
+  "name": "vue-form",
+  "short_name": "vue-form",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

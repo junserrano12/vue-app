@@ -52,20 +52,12 @@ function saveToFile(jsonData, filename) {
     }
 }
 
-// function saveJsonFile(data) {
-//     const os = require('os');
-//     const storage = require('electron-json-storage');
-
-//     storage.setDataPath(os.tmpdir());
-// }
-
 export default new Vuex.Store({
     state: {
         storedata: loadData(),
         axiosdata: {
             clientinformations: []
         }
-
     },
 
     getters: {
@@ -110,12 +102,6 @@ export default new Vuex.Store({
             state.axiosdata.clientinformations.push( client );
             window.localStorage.setItem( "clients", JSON.stringify( state.axiosdata.clientinformations ) );
 
-            /*USING FS*/
-            // var ctr = state.axiosdata.clientinformations.length + 1;
-            // var clientdata = JSON.stringify(client, null, ctr);
-            // saveData( clientdata );
-            /*BLOB*/
-            // saveToFile( JSON.stringify( state.axiosdata.clientinformations, '~/vue/pdfform/public/api/' ) );
         },
 
         DELETE_CLIENT_INFO: (state, index) => {
@@ -127,4 +113,4 @@ export default new Vuex.Store({
             state.storedata.global.clientid = index;
         }
     }
-})
+});
