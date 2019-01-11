@@ -3,40 +3,40 @@
         "primary": [
             {
                 "link": "/",
-                "label": "Home"
+                "label": "家"
             },
             {
                 "link": "/form",
-                "label": "Form"
+                "label": "形成"
             },
             {
                 "link": "/list",
-                "label": "List"
+                "label": "名单"
             },
             {
                 "link": "/preview",
-                "label": "Preview"
+                "label": "预习"
             }
         ]
     },
     "page": {
         "home": {
-            "pageTitle": "Home"
+            "pageTitle": "家"
         },
         "list": {
-            "pageTitle": "Client List"
+            "pageTitle": "客户名单"
         },
         "notfound": {
-            "pageTitle": "Page Not Found"
+            "pageTitle": "网页未找到"
         },
         "form": {
-            "pageTitle": "Client Information"
+            "pageTitle": "客户信息"
         },
         "preview": {
-            "pageTitle": "Preview Client Information"
+            "pageTitle": "预览客户信息"
         }
     },
     "constant": {
-        "copyright": "All rights reserved."
+        "copyright": "版权所有。"
     }
 }

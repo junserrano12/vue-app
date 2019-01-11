@@ -5,9 +5,9 @@
         </header>
 
         <section class="sidebar">
-            <ModuleMenu :items="primaryMenuList" :classes="['list-block', 'another-class']">
+            <ModuleMenu :items="primarymenu" :classes="['list-block', 'another-class']">
                 <template slot-scope="listProps">
-                    <router-link :to="listProps.item.uri">{{listProps.item.link}}</router-link>
+                    <router-link :to="listProps.item.link">{{listProps.item.label}}</router-link>
                 </template>
             </ModuleMenu>
         </section>
@@ -36,7 +36,7 @@
 import ModuleMenu from "@/components/ModuleMenu.vue"
 
 /*DATA*/
-import dataCopyEn from "@/locales/en.json"
+import locales from "@/locales/en.json"
 
 export default {
     name: "TemplatePage",
@@ -77,8 +77,8 @@ export default {
 
     data() {
         return {
-            primaryMenuList: dataCopyEn.menu.primary,
-            page: dataCopyEn.page
+            primarymenu: locales.menu.primary,
+            page: locales.page
         }
     }
 };
