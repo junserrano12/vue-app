@@ -1,11 +1,13 @@
 const express = require('express')
+const http = require('http');
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
+const server = http.createServer(app)
 
-port = process.env.PORT || 8081
+const port = process.env.PORT || 8081
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
@@ -35,25 +37,9 @@ app.post('/add_post', (req, res) => {
 
 })
 
-app.put('/posts/:id', (req, res) => {
-
-    res.send({
-
-        success: true
-    })
+server.on('error', function(e) {
+    console.log("error")
 })
 
-app.delete('/posts/:id', (req, res) => {
-    res.send({
-        success: true
-    })
-})
-
-app.get('/post/:id', (req, res) => {
-    res.send({
-        success: true
-    })
-})
-
-app.listen(port)
+server.listen(port)
 console.log('Server started on port ' + port)
