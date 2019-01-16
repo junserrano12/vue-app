@@ -4,6 +4,7 @@
             <div class="field-container align-right">
                 <input id="search" type="text" class="serach-box">
                 <input type="submit" value="Search">
+                <input type="submit" value="Extract" @click="exportClientInformations">
             </div>
 
             <table>
@@ -49,6 +50,10 @@ export default {
 
         loadClientInformations: function(index) {
             this.clientindex = index;
+        },
+
+        exportClientInformations: function() {
+            this.$store.dispatch("exportClientInformations");
         }
     },
 

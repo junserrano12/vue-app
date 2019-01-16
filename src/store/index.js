@@ -37,7 +37,7 @@ export default new Vuex.Store({
 
     actions: {
         loadClientInformations: ({commit}) => {
-            axios.get( '/api/clientinformations.json' )
+            axios.get( '/api/data/clientinformations.json' )
                  .then( response => {
                     commit('LOAD_CLIENT_INFO', response.data)
                  })
@@ -51,8 +51,20 @@ export default new Vuex.Store({
             context.commit("DELETE_CLIENT_INFO", index);
         },
 
+        updateClientInformations: (context, client) => {
+            context.commit("UPDATE_CLIENT_INFO", client);
+        },
+
         updateGlobalClientId: (context, index) => {
             context.commit("UPDATE_GLOBAL_CLIENT_ID", index);
+        },
+
+        exportClientInformations: ({commit}) => {
+            // console.log("exporting CLIENT INFO");
+            axios.get( '/api/saveClientInformations')
+                 .then( response => {
+                    console.log( response.data );
+                 })
         }
     },
 
@@ -73,6 +85,15 @@ export default new Vuex.Store({
 
         DELETE_CLIENT_INFO: (state, index) => {
             state.axiosdata.clientinformations.splice(index, 1);
+            window.localStorage.setItem( "clients", JSON.stringify( state.axiosdata.clientinformations ) );
+        },
+
+        UPDATE_CLIENT_INFO: (state, client) => {
+            let existingclient = state.axiosdata.clientinformations[client.id];
+            existingclient.id = client.id + 1;
+            existingclient.fname = client.fname;
+            existingclient.lname = client.lname;
+            state.axiosdata.clientinformations[client.id] = existingclient;
             window.localStorage.setItem( "clients", JSON.stringify( state.axiosdata.clientinformations ) );
         },
 

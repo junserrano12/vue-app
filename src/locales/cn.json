@@ -14,7 +14,7 @@
                 "label": "名单"
             },
             {
-                "link": "/preview",
+                "link": "/posts",
                 "label": "预习"
             }
         ]

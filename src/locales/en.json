@@ -14,8 +14,8 @@
                 "label": "List"
             },
             {
-                "link": "/preview",
-                "label": "Preview"
+                "link": "/posts",
+                "label": "Posts"
             }
         ]
     },

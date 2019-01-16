@@ -22,7 +22,7 @@ module.exports = {
     },
 
     devServer: {
-        port: 5000,
+        port: 8080,
         compress: true, // enable gzip compression
         historyApiFallback: true, // true for index.html upon 404, object for multiple paths
         https: false, // true for self-signed, object for cert authority

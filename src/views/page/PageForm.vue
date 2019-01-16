@@ -2,7 +2,7 @@
     <TemplatePage>
         <template slot="contentBody">
 
-            <form @submit.prevent="updateClientInformations">
+            <form @submit.prevent="submitClientInformations">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="field-container">
@@ -38,7 +38,7 @@ export default {
     },
 
     methods: {
-        updateClientInformations: function() {
+        submitClientInformations: function() {
             if ( this.clientid === null ) {
                 var ctr = this.$store.state.axiosdata.clientinformations.length + 1;
 
@@ -50,6 +50,15 @@ export default {
 
                 this.$store.dispatch("addClientInformations", this.newclient);
 
+            } else  {
+                var ctr = this.clientid;
+                this.newclient = {
+                                    "id": ctr,
+                                    "fname": this.fname,
+                                    "lname": this.lname
+                                };
+
+                this.$store.dispatch("updateClientInformations", this.newclient);
             }
 
             /*Reset Data*/
