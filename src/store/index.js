@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import axios from "axios"
+import PostService from "@/services/PostService"
 
 Vue.use(Vuex)
 
@@ -60,11 +61,14 @@ export default new Vuex.Store({
         },
 
         exportClientInformations: ({commit}) => {
-            // console.log("exporting CLIENT INFO");
-            axios.get( '/api/saveClientInformations')
-                 .then( response => {
-                    console.log( response.data );
-                 })
+            console.log("export client informations");
+
+            let check = PostService.addPost({
+                title: "hi",
+                description: "this is my description"
+            })
+
+            console.log( check );
         }
     },
 
