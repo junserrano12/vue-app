@@ -1,4 +1,5 @@
 import Vue from "vue";
+import AnimateCss from 'animate.css';
 import App from "@/App.vue";
 import router from "@/router/";
 import store from "@/store/";
@@ -11,6 +12,8 @@ Vue.prototype.$eventHub = new Vue();
 
 Vue.component( "TemplatePage", TemplatePage );
 Vue.mixin( GlobalMixins );
+
+Vue.use(AnimateCss);
 
 new Vue({
   router,

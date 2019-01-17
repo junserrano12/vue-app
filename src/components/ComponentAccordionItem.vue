@@ -19,13 +19,13 @@ export default {
         title: {
             type: String,
             required: true,
-            default: 'Accordion Title'
+            default: "Accordion Title"
         }
     },
 
     methods: {
         updateItem: function() {
-            if ( this.$parent.toggle === 'toggle-all' ) {
+            if ( this.$parent.toggle === "toggle-all" ) {
                 let tempactive = this.isactive;
 
                 this.$parent.$children.forEach( function( elem ) {
@@ -41,7 +41,11 @@ export default {
 
     computed: {
         activeItemClass: function() {
-            return { 'item-active': this.isactive };
+            return { "item-active": this.isactive };
+        },
+
+        transitionClass: function() {
+            return "test";
         }
     },
 

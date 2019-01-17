@@ -51,7 +51,7 @@ export default {
                     this.indexitem = [];
                 }
                 this.indexitem.push( index );
-            }
+           }
         },
 
         activeClass: function( index ) {
