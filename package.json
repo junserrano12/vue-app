@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve | nodemon server.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "nodemon server.js | npm run serve"
+    "start": "nodemon server.js | serve -s dist"
   },
   "dependencies": {
     "animate.css": "^3.7.0",

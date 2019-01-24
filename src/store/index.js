@@ -39,10 +39,9 @@ export default new Vuex.Store({
 
     actions: {
         loadClientInformations: ({commit}) => {
-            axios.get( '/api/data/clientinformations.json' )
-                 .then( response => {
-                    commit('LOAD_CLIENT_INFO', response.data)
-                 })
+            PostService.getClients().then( response => {
+                commit('LOAD_CLIENT_INFO', response.data)
+            })
         },
 
         addClientInformations: (context, client) => {
@@ -62,14 +61,12 @@ export default new Vuex.Store({
         },
 
         exportClientInformations: ({commit}) => {
-            console.log("export client informations");
-
-            let check = PostService.addPost({
+            PostService.addPost({
                 title: "hi",
                 description: "this is my description"
-            })
-
-            console.log( check );
+            }).then( response => {
+                console.log( response.data );
+            });
         }
     },
 
