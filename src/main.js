@@ -13,7 +13,7 @@ Vue.prototype.$eventHub = new Vue();
 Vue.component( "TemplatePage", TemplatePage );
 Vue.mixin( GlobalMixins );
 
-Vue.use(AnimateCss);
+Vue.use( AnimateCss );
 
 new Vue({
   router,
